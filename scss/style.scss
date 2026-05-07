@@ -1,18 +1,128 @@
+
+// CSS - переменные
+
+:root {
+    // Цвета - светлая тема 
+    --color-bg: #ffffff;
+    --color-text: #000000;
+    --color-text-muted: #00000099;
+    --color-border: #000000;
+    --color-card-bg: #ffffff;
+
+    // Секция с темным фоном (experience, project)
+    --color-dark-bg: #000000;
+    --color-dark-text: #ffffff;
+    --color-dark-border: #ffffff;
+    --color-dark-muted: #FFFFFF99;
+
+    // Акцент (выделенный навык, кнопки)
+    --color-accent: #000000;
+    --color-accent-inv: #ffffff;
+
+    // Размеры и отступы
+    --section-margin: 100px;
+    --container-padding: 32px;
+    --gap-large: 48px;
+    --gap-medium: 20px;
+    --gap-small: 16px;
+    --border-radius: 8px;
+}
+
+// Темная тема (prefers-color-scheme)
+@media (prefers-color-scheme: dark) {
+    :root:not(.light-theme) {
+        --color-bg: #0d0d0d;
+        --color-text: #f0f0f0;
+        --color-text-muted: #f0f0f099;
+        --color-border: #444444;
+        --color-card-bg: #1a1a1a;
+
+        --color-dark-bg: #111111;
+        --color-dark-text: #f0f0f0;
+        --color-dark-border: #444444;
+        --color-dark-muted: #f0f0f099;
+
+        --color-accent: #f0f0f0;
+        --color-accent-inv: #0d0d0d;
+    }
+}
+
+// Адаптивные переменные
+@media (max-width: 768px) {
+    :root {
+        --section-margin: 60px;
+        --container-padding: 20px;
+        --gap-large: 24px;
+        --h1-font-size: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --container-padding: 16px;
+        --gap-large: 16px;
+        --h1-font-size: 26px;
+    }
+}
+
+// Миксины - это переиспользуемый кусок стилей 
+
+// .btn1 {
+//     padding: 10px;
+//     border-radius: 8px;
+//     background: blue;
+// }
+// .btn2 {
+//     padding: 10px;
+//     border-radius: 8px;
+//     background: red;
+// }                          // обычный CCS без миксинов
+
+// @mixin button {
+//     padding: 10px;
+//     border-radius: 8px;
+// }
+// .btn1 {
+//     @include button;
+//     background: blue;
+// }
+// .btn1 {
+//     @include button;
+//     background: red;
+// }
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-row($gap: 16px) {
+    display: flex;
+    align-items: center;
+    gap: $gap;
+}
+
+
+
+body  {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    overflow-x: hidden; // запрет горизонтального скролла 
+}
+
 h1 {
-    font-size: 48px;
+    font-size: var(--h1-font-size, 48px);
 }
 
 section {
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: var(--section-margin);
+    margin-bottom: var(--section-margin);
 }
 
-section:nth-child(3) {
-    background-color: black;
-}
-
+section:nth-child(3),
 section:nth-child(5) {
-    background-color: black;
+    background-color: var(--color-dark-bg);
 }
 
 .normal {
@@ -22,19 +132,25 @@ section:nth-child(5) {
 .hero {
     position: relative;
     display: flex;
-    padding: 0 32px;
+    padding: 0 var(--container-padding);
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--gap-large);
+    }
 }
 
 .container {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 32px;
+    padding: 0 var(--container-padding);
 }
 
 .header {
     font-size: 48px;
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: var(--gap-large);
 }
 
 .hero-content {
@@ -42,22 +158,45 @@ section:nth-child(5) {
     display: flex;
     flex-direction: column;
     justify-content: end;
-    gap: 48px;
+    gap: var(--gap-large);
     height: 100%;
+
+    @media (max-width: 768px) {
+        position: static;
+        height: auto;
+        text-align: center;
+    }
 }
 
 .hero-links {
     display: flex;
-    gap: 48px;
+    gap: var(--gap-large);
     .hero-icon {
         width: 64px;
         height: 64px;
         font-size: 40px;
-        border: 2px solid black;
-        border-radius: 11px;
-        display: flex;
-        align-items: center;
+        border: 2px solid var(--color-border);
+        border-radius: var(--border-radius);
+        @include flex-center;
+
+        &:hover {
+            background-color: var(--color-accent);
+            color: var(--color-accent-inv);
+            border-color: var(--color-accent);
+        }
+    }
+
+    @media (max-width: 768px) {
         justify-content: center;
+    }
+    @media (max-width: 480px) {
+        gap: 10px;
+
+        .hero-icon {
+            width: 48px;
+            height: 48px;
+            font-size: 28px;
+        }
     }
 }
 
@@ -65,7 +204,9 @@ section:nth-child(5) {
     max-width: 701px;
     font-size: 24px;
     font-weight: 400;
-    color: #00000099;
+    color: var(--color-text-muted);
+
+
 }
 
 .hero-image {
@@ -80,7 +221,7 @@ section:nth-child(5) {
 .skills-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: var(--gap-medium);
     flex-wrap: wrap;
 }
 
@@ -88,50 +229,66 @@ section:nth-child(5) {
     display: flex;
     height: 180px;
     width: 186px;
-    padding: 16px;
+    padding: var(--gap-small);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 16px;
-    border-radius: 8px;
-    border: 1px solid #000;
+    gap: var(--gap-small);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
     i {
         font-size: 48px;
+        color: var(--color-text);
     }
     p {
         font-size: 18px;
         font-weight: 800;
+        color: var(--color-text);
+    }
+
+    &:hover, &.active {
+        background-color: var(--color-accent);
+        border-color: var(--color-accent);
+
+        i, p {
+            color: var(--color-accent-inv);
+        }
     }
 }
 
 .white {
-    color: white;
+    color: var(--color-dark-text);
     padding: 100px 0;
+
+    .header {
+        color: var(--color-dark-text);
+    }
 }
 
 .experience-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: var(--gap-medium);
 }
 
 .experience-card {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    padding: 24px 16px;
-    border-radius: 8px;
-    border: 1px solid #FFF;
+    gap: var(--gap-small);
+    padding: 24px var(--gap-small);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-dark-border);
+
     .header-wrapper {
-        display: flex;
-        gap: 24px;
-        align-items: center;
+         @include flex-row(24px);
     }
     .card-header {
-        font-size: 30px
+        font-size: 30px;
+        color: var(--color-dark-text);
     }
     .card-description {
         font-size: 18px;
+        color: var(--color-dark-muted);
     }
     .experience-icon {
         display: inline;
@@ -144,6 +301,11 @@ section:nth-child(5) {
     display: flex;
     justify-content: space-between;
     gap: 123px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: var(--gap-large);
+    }
 }
 
 .about-content {
@@ -153,17 +315,17 @@ section:nth-child(5) {
     .about-description {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: var(--gap-medium);
         font-size: 16px;
         line-height: 26px;
-        color: #00000099
+        color: var(--color-text-muted)
     }
 }
 
 .projects-content {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: var(--gap-large);
 }
 
 .project {
@@ -183,7 +345,7 @@ section:nth-child(5) {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        gap: 20px;
+        gap: var(--gap-medium);
         max-width: 495px;
         .number {
             font-size: 48px;
@@ -192,13 +354,13 @@ section:nth-child(5) {
             font-size: 30px;
         }
         .project-description {
-            color: #FFFFFF99
+            color: var(--color-dark-muted)
         }
     }
     .more-btn {
         display: block;
-        padding: 16px 20px;
-        border-radius: 8px;
+        padding: var(--gap-small) var(--gap-medium);
+        border-radius: var(--border-radius);
         margin-right: auto;
     }
 }
@@ -218,8 +380,8 @@ section:nth-child(5) {
         line-height: 48px;
     }
     .description {
-        margin: 32px 0;
-        color: #00000099;
+        margin: var(--gap-large) 0;
+        color: var(--color-text-muted);
         line-height: 24px;
     }
 }
@@ -228,6 +390,11 @@ section:nth-child(5) {
     display: flex;
     justify-content: space-between;
     gap: 123px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: var(--gap-large);
+    }
 }
 
 .email,
