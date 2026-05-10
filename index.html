@@ -2,14 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
-    <link rel="stylesheet" href="./style/all.css">
-    <link rel="stylesheet" href="./style/nullstyles.css">
-    <link rel="stylesheet" href="./style/style.css" >
+    <link rel="stylesheet" href="./style/all.css" />
+    <link rel="stylesheet" href="./style/nullstyles.css" />
+    <link rel="stylesheet" href="./style/style.css" />
 </head>
 <body>
+    <header class="site-header">
+        <div class="container">
+            <a href="#" class="header-logo">
+                <img src="./assets/logo.svg" alt="logo" /> 
+            </a>
+
+            <nav class="header-nav" id="main-nav">
+                <ul>
+                    <li>
+                        <a href="#about">About me</a>
+                    </li>
+                    <li>
+                        <a href="#skills">Skills</a>
+                    </li>
+                    <li>
+                        <a href="#projects">Projects</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact me</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#" class="resume-btn">
+                    Resume
+                    <i class="fa-solid fa-download"></i>
+                </a>
+                <button class="burger-btn" id="burger-btn" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
     <section>
         <div class="container hero">
             <div class="hero-content">
@@ -29,13 +65,10 @@
                         <i class="fa-brands fa-reddit-alien"></i>
                     </div>
                     <div class="hero-icon">
-                        <i class="fa-brands fa-linkedin"></i>
+                        <i class="fa-brands fa-reddit-alien"></i>
                     </div>
                     <div class="hero-icon">
-                        <i class="fa-brands fa-discord"></i>
-                    </div>
-                    <div class="hero-icon">
-                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-reddit-alien"></i>
                     </div>
                 </div>
             </div>
@@ -52,61 +85,16 @@
                     <i class="fa-brands fa-css"></i>
                     <p>CSS</p>
                 </div>
-                <div class="skill-card">
-                    <i class="fa-brands fa-js"></i>
-                    <p>JavaScript</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fa-brands fa-git-alt"></i>
-                    <p>Git</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fa-brands fa-github"></i>
-                    <p>GitHub</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fa-solid fa-circle-nodes"></i>
-                    <p>GraphQL</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fa-brands fa-html5"></i>
-                    <p>HTML5</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fa-solid fa-diagram-next"></i>
-                    <p>Next.js</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fa-brands fa-node-js"></i>
-                    <p>Node.js</p> 
-                </div>
-                <div class="skill-card">
-                    <i class="fa-brands fa-react"></i>
-                    <p>React</p> 
-                </div>
-                <div class="skill-card">
-                    <i class="fa-brands fa-atom"></i>
-                    <p>Redux</p> 
-                </div>
-                <div class="skill-card">
-                    <i class="fa-brands fa-tailwind-css"></i>
-                    <p>Tailwind</p> 
-                </div>
-                <div class="skill-card">
-                    <i class="fa-brands fa-typescript"></i>
-                    <p>TypeScript</p> 
-                </div>
             </div>
         </div>
     </section>
     <section>
-        <div class="container white">
+        <div class="container section-dark">
             <h2 class="header">My <span>Experience</span></h2>
             <div class="experience-container">
                 <div class="experience-card">
                     <div class="header-wrapper">
                         <h4 class="card-header">
-                            <i class="fa-brands fa-google"></i>
                             Lead Software Engineer at Google
                         </h4>
                     </div>
@@ -117,7 +105,6 @@
                 <div class="experience-card">
                     <div class="header-wrapper">
                         <h4 class="card-header">
-                            <i class="fa-brands fa-youtube"></i>
                             Lead Software Engineer at Google
                         </h4>
                     </div>
@@ -128,7 +115,6 @@
                 <div class="experience-card">
                     <div class="header-wrapper">
                         <h4 class="card-header">
-                            <i class="fa-brands fa-apple"></i>
                             Lead Software Engineer at Google
                         </h4>
                     </div>
@@ -155,7 +141,7 @@
         </div>
     </section>
     <section>
-        <div class="container white">
+        <div class="container section-dark">
             <h2 class="header">My <span>Projects</span></h2>
             <div class="projects-content">
                 <div class="project">
@@ -166,7 +152,7 @@
                         <h2 class="number">01</h2>
                         <h4 class="project-title">Crypto Screener Application</h4>
                         <p class="project-description">An intuitive application for monitoring and analyzing cryptocurrency markets. It offers real-time data, advanced filters, and insightful tools tailored for traders and investors of all levels.</p>
-                        <button class="more-btn"> Learn more <i class="fa-solid fa-arrow-up-right-from-square"></i> </button>
+                        <button class="more-btn"> Learn more</button>
                     </div>
                 </div>
                 <div class="project">
@@ -177,7 +163,7 @@
                         <h2 class="number">01</h2>
                         <h4 class="project-title">Crypto Screener Application</h4>
                         <p class="project-description">An intuitive application for monitoring and analyzing cryptocurrency markets. It offers real-time data, advanced filters, and insightful tools tailored for traders and investors of all levels.</p>
-                        <button class="more-btn"> Learn more <i class="fa-solid fa-arrow-up-right-from-square"></i> </button>
+                        <button class="more-btn"> Learn more</button>
                     </div>
                 </div>
                 <div class="project">
@@ -188,7 +174,7 @@
                         <h2 class="number">01</h2>
                         <h4 class="project-title">Crypto Screener Application</h4>
                         <p class="project-description">An intuitive application for monitoring and analyzing cryptocurrency markets. It offers real-time data, advanced filters, and insightful tools tailored for traders and investors of all levels.</p>
-                        <button class="more-btn"> Learn more <i class="fa-solid fa-arrow-up-right-from-square"></i> </button>
+                        <button class="more-btn"> Learn more</button>
                     </div>
                 </div>
             </div>
@@ -201,10 +187,36 @@
             <div class="contacts">
                 <h2>Let’s talk for <br> Something special</h2>
                 <p class="description">I seek to push the limits of creativity to create high-engaging, user-friendly, and memorable interactive experiences.</p>
-                <p class="email"><i class="fa-solid fa-envelope"></i> email@example.com</p>
+                <p class="email"> email@example.com</p>
                 <p class="phone"><i class="fa-solid fa-phone"></i> +1 234 56 78 910</p>
             </div>
         </div>
     </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <a href="#" class="footer-logo">
+                <img src="./assets/logo-white.svg" alt="logo" />
+            </a>
+            <p class="footer-copy">2026 John Doe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const burgerBtn = document.getElementById('burger-btn');
+        const mainNav = document.getElementById('main-nav');
+
+        burgerBtn.addEventListener('click', function() {
+            burgerBtn.classList.toggle('is-open');
+            mainNav.classList.toggle('is-open');
+        })
+
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                burgerBtn.classList.remove('is-open');
+                mainNav.classList.remove('is-open')
+            })
+        })
+    </script>
 </body>
 </html>
