@@ -1,5 +1,4 @@
 // CSS - переменные
-
 :root {
     // Цвета - светлая тема
 
@@ -633,6 +632,147 @@ section {
     display: flex;
     justify-content: space-between;
     gap: 123px;
+}
+
+.contact-form {
+    flex: 1; // займи все доступное пространство
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    @include responsive(mobile) {
+        gap: 14px;
+    }
+
+    @include responsive(small) {
+        gap: 12px;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    label {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--color-text-muted);
+        display: none;
+    }
+}
+
+.contact-form input,
+.contact-form textarea {
+    appearance: none; // убираем дефолтный вид
+    -webkit-appearance: none;
+
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1.5px solid var(--color-border);
+    background-color: var(--color-card-bg);
+    color: var(--color-text);
+    font-size: 16px;
+    font-family: inherit;
+
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    @include responsive(small) {
+        padding: 8px 10px;
+        font-size: 15px;
+    }
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-accent);
+}
+
+.contact-form textarea {
+    resize: none; // запрет растягивания мышью
+    min-height: 140px;
+    line-height: 1.6;
+    @include responsive(mobile) {
+        min-height: 120px;
+    }
+}
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+    @include responsive(mobile) {
+        gap: 12px;
+    }
+
+    @include responsive(small) {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+.submit-btn {
+    padding: 16px 28px;
+    background-color: var(--color-accent);
+    color: var(--color-accent-inv);
+    border: 2px solid var(--color-accent);
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+
+    transition: opacity 0.2s ease;
+
+    &:hover {
+        opacity: 0.8;
+    }
+    @include responsive(mobile) {
+        padding: 14px 24px;
+        font-size: 15px;
+    }
+
+    @include responsive(small) {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 14px;
+    }
+}
+
+.form-socials {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    @include responsive(small) {
+        justify-content: center;
+    }
+}
+
+.social-icon {
+    width: 52px;
+    height: 52px;
+    border: 1.5px solid var(--color-border);
+    border-radius: 8px;
+    @include flex-center;
+    color: var(--color-text);
+    font-size: 20px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    @include responsive(mobile) {
+        width: 46px;
+        height: 46px;
+        font-size: 18px;
+    }
+
+    @include responsive(small) {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+        border-radius: 6px;
+    }
 }
 
 .email,
